@@ -13,6 +13,7 @@ function Home() {
   const [gameOver, setGameOver] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
   const [loading, setLoading] = useState(true); // New state variable for loading
+  const [showInstructions, setShowInstructions] = useState(true); // New state variable for instructions
 
   useEffect(() => {
     const storedHighestScore = localStorage.getItem("highestScore");
@@ -43,6 +44,7 @@ function Home() {
     }
     random();
   }
+
   function playAudio() {
     const audio1 = new Audio(correctSound);
     const audio2 = new Audio(incorrectSound);
@@ -81,9 +83,28 @@ function Home() {
     formHandler(event);
   }
 
+  function closeInstructions() {
+    setShowInstructions(false);
+  }
+
   return (
     <div className="center-container">
-      {!gameOver && selectedEvent && (
+      {showInstructions && ( // Display the instructions pop-up if showInstructions is true
+        <div
+          className="starting-popup"
+        >
+          <h2>How to Play</h2>
+          <p>Guess the year in which the event shown on the screen occurred.</p>
+          <p>Use the slider to select your guess and click "CONFIRM".</p>
+          <p>
+            Gain points for correct guesses and lose life for incorrect ones.
+          </p>
+          <button onClick={closeInstructions} className="submit-button">
+            Start Game
+          </button>
+        </div>
+      )}
+      {!showInstructions && !gameOver && selectedEvent && (
         <div className="selected-event">
           <div className="boxes-container">
             <div className="box">
@@ -98,7 +119,7 @@ function Home() {
             </div>
           </div>
           {loading ? (
-            <div className="loading">Loading...</div> // Show loading text or icon
+            <div className="loading">Loading...</div>
           ) : (
             <img
               src={selectedEvent.link}
