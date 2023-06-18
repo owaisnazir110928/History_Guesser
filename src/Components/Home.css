@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   width: 500px;
-  padding-inline: auto;
-  height: 98vh;
+  margin-inline: auto;
+  height: 100vh;
   max-height: 150vh;
   gap: 1rem;
   background-color: #000;
@@ -272,4 +272,62 @@ body {
 .box {
   border: 1px solid #fff;
   padding: 10px;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+  .center-container {
+    width: 500px;
+    padding-inline: auto;
+  }
+
+  .selected-event {
+    margin-bottom: 1rem;
+  }
+
+
+  .range {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .center-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .selected-event {
+    margin-bottom: 0.5rem;
+  }
+
+  .score,
+  .life {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .range {
+    width: 350px;
+    margin-bottom: 1.5rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-content p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-content button {
+    font-size: 0.9rem;
+  }
 }
