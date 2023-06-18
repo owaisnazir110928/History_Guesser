@@ -5,11 +5,11 @@
   justify-content: center;
   width: 500px;
   padding-inline: auto;
-  height: 98dvh;
-  max-height: 150dvh;
+  height: 98vh;
+  max-height: 150vh;
   gap: 1rem;
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   text-align: center;
   font-family: "Press Start 2P", cursive;
 }
@@ -45,7 +45,7 @@
 }
 
 .event-image {
-  border: 2px solid #000;
+  border: 2px solid #fff;
   border-radius: 10px;
 }
 
@@ -54,7 +54,6 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
-
 }
 
 .center {
@@ -85,12 +84,12 @@
 }
 
 .green {
-  color: green;
-  border-color: green;
+  color: #00ff00;
+  border-color: #00ff00;
 }
 
 .red {
-  color: red;
+  color: #ff0000;
 }
 
 .range {
@@ -112,7 +111,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50px;
-  background: #4caf50;
+  background: #00ff00;
   cursor: pointer;
 }
 
@@ -120,13 +119,13 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4caf50;
+  background: #00ff00;
   cursor: pointer;
 }
 
 .submit-button {
   margin-top: 1rem;
-  background-color: #4caf50;
+  background-color: #00ff00;
   color: #000;
   font-size: 1.2rem;
   padding: 0.8rem 1.2rem;
@@ -137,7 +136,7 @@
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #00cc00;
 }
 
 .guess-box {
@@ -146,7 +145,7 @@
   align-items: center;
   flex-direction: column;
   gap: 12px;
-  border: 1px dashed rgba(0, 0, 0, 0.7);
+  border: 1px dashed rgba(255, 255, 255, 0.7);
   padding: 12px;
   margin-bottom: 1rem;
   font-size: 0.9rem;
@@ -176,7 +175,7 @@
 }
 
 .box {
-  border: 1px solid black;
+  border: 1px solid #fff;
   padding: 10px;
 }
 
@@ -186,7 +185,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,7 +211,7 @@
 }
 
 .modal-content button {
-  background-color: #4caf50;
+  background-color: #00ff00;
   color: #fff;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
@@ -223,66 +222,54 @@
 }
 
 .modal-content button:hover {
-  background-color: #45a049;
+  background-color: #00cc00;
 }
 
-
-
-
-/* Responsive Styles */
-
-@media screen and (max-width: 768px) {
-  .center-container {
-    width: 500px;
-    padding-inline: auto;
-  }
-
-  .selected-event {
-    margin-bottom: 1rem;
-  }
-
-
-  .range {
-    width: 350px;
-  }
+/* Retro Game-themed Colors */
+body {
+  background-color: #000;
 }
 
-@media screen and (max-width: 480px) {
-  .center-container {
-    width: 100%;
-    margin: 0;
-  }
+.center-container {
+  background-color: #222;
+  color: #fff;
+}
 
-  .selected-event {
-    margin-bottom: 0.5rem;
-  }
+.selected-event {
+  color: #fff;
+}
 
-  .score,
-  .life {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
+.submit-button {
+  background-color: #f44336;
+  color: #fff;
+}
 
-  .range {
-    width: 350px;
-    margin-bottom: 1.5rem;
-  }
+.submit-button:hover {
+  background-color: #d32f2f;
+}
 
-  .submit-button {
-    font-size: 1rem;
-  }
+.green {
+  color: #00e676;
+  border-color: #00e676;
+}
 
-  .modal-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
+.red {
+  color: #ff1744;
+}
 
-  .modal-content p {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
+.range {
+  background: #3a3a3a;
+}
 
-  .modal-content button {
-    font-size: 0.9rem;
-  }
+.range::-webkit-slider-thumb {
+  background: #00e676;
+}
+
+.range::-moz-range-thumb {
+  background: #00e676;
+}
+
+.box {
+  border: 1px solid #fff;
+  padding: 10px;
 }
