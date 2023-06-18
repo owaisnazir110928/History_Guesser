@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 500px;
-  margin-inline: auto;
+  padding-inline: auto;
   height: 98dvh;
   max-height: 150dvh;
   gap: 1rem;
@@ -227,7 +227,7 @@
 @media screen and (max-width: 768px) {
   .center-container {
     width: 500px;
-    margin-inline: auto;
+    padding-inline: auto;
   }
 
   .selected-event {
