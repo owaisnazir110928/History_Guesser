@@ -6,6 +6,7 @@
   width: 500px;
   margin-inline: auto;
   height: 98dvh;
+  max-height: 150dvh;
   gap: 1rem;
   background-color: #fff;
   color: #000;
