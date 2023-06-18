@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import events from "../assets/events.json";
+import correctSound from "../assets/correct.mp3";
+import incorrectSound from "../assets/incorrect.mp3";
 
 function Home() {
   const [year, setYear] = useState(1963);
@@ -13,18 +15,21 @@ function Home() {
   const [loading, setLoading] = useState(true); // New state variable for loading
 
   useEffect(() => {
+    const storedHighestScore = localStorage.getItem("highestScore");
+    if (storedHighestScore) {
+      setHighestScore(parseInt(storedHighestScore));
+    }
     random();
   }, []);
 
   function random() {
-    setLoading(true); // Show loading when selecting a new event
+    setLoading(true);
     const randomIndex = Math.floor(Math.random() * events.length);
     const initialEvent = events[randomIndex];
 
-    // Simulate delay for loading
     setTimeout(() => {
       setSelectedEvent(initialEvent);
-      setLoading(false); // Hide loading when event is selected
+      setLoading(false);
     }, 500);
   }
 
@@ -38,11 +43,21 @@ function Home() {
     }
     random();
   }
+  function playAudio() {
+    const audio1 = new Audio(correctSound);
+    const audio2 = new Audio(incorrectSound);
+    if (selectedEvent.year === year) {
+      audio1.play();
+    } else {
+      audio2.play();
+    }
+  }
 
   useEffect(() => {
     if (life <= 0) {
       if (score > highestScore) {
         setHighestScore(score);
+        localStorage.setItem("highestScore", score.toString());
       }
       setGameOver(true);
       setTimeout(() => {
@@ -58,6 +73,7 @@ function Home() {
 
   function showPopup() {
     setPopupVisible(true);
+    playAudio();
   }
 
   function hidePopup() {
@@ -71,10 +87,14 @@ function Home() {
         <div className="selected-event">
           <div className="boxes-container">
             <div className="box">
-              <p>score: {score}</p>
+              <p>
+                score: <span style={{ color: "goldenrod" }}>{score}</span>
+              </p>
             </div>
             <div className="box">
-              <p>lives: {life}</p>
+              <p>
+                lives: <span style={{ color: "green" }}>{life}</span>
+              </p>
             </div>
           </div>
           {loading ? (
@@ -110,7 +130,7 @@ function Home() {
               <div className="guess-box">
                 <h4>Guess</h4>
                 <hr width="100%" />
-                <h3>{year}</h3>
+                <h3 className="yellow">{year}</h3>
               </div>
               {popupVisible && (
                 <div className="guess-box green">
