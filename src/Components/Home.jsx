@@ -76,6 +76,20 @@ function Home() {
             className="event-image"
           />
           <h3 className="event-text">{selectedEvent.event}</h3>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5153251866096968"
+            crossOrigin="anonymous"
+          ></script>
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block" }}
+            data-ad-client="ca-pub-5153251866096968"
+            data-ad-slot="7419026991"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       )}
       {!gameOver && (
