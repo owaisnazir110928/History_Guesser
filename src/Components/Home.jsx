@@ -10,15 +10,22 @@ function Home() {
   const [highestScore, setHighestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
+  const [loading, setLoading] = useState(true); // New state variable for loading
 
   useEffect(() => {
     random();
   }, []);
 
   function random() {
+    setLoading(true); // Show loading when selecting a new event
     const randomIndex = Math.floor(Math.random() * events.length);
     const initialEvent = events[randomIndex];
-    setSelectedEvent(initialEvent);
+
+    // Simulate delay for loading
+    setTimeout(() => {
+      setSelectedEvent(initialEvent);
+      setLoading(false); // Hide loading when event is selected
+    }, 500);
   }
 
   function formHandler(event) {
@@ -70,11 +77,15 @@ function Home() {
               <p>lives: {life}</p>
             </div>
           </div>
-          <img
-            src={selectedEvent.link}
-            alt="event-image"
-            className="event-image"
-          />
+          {loading ? (
+            <div className="loading">Loading...</div> // Show loading text or icon
+          ) : (
+            <img
+              src={selectedEvent.link}
+              alt="event-image"
+              className="event-image"
+            />
+          )}
           <h3 className="event-text">{selectedEvent.event}</h3>
           <script
             async
