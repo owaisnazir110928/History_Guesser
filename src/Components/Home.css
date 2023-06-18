@@ -5,7 +5,7 @@
   justify-content: center;
   width: 500px;
   margin-inline: auto;
-  height: 100vh;
+  height: 100dvh;
   max-height: 150vh;
   gap: 1rem;
   background-color: #000;
@@ -34,7 +34,7 @@
 }
 .starting-popup{
   z-index: 1000;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   max-width: 500px;
   display: flex;
