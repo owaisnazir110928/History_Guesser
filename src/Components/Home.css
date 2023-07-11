@@ -169,6 +169,7 @@
   padding: 12px;
   margin-bottom: 1rem;
   font-size: 0.9rem;
+  transition: display 1s ease-in-out;
 }
 
 .hidden {
